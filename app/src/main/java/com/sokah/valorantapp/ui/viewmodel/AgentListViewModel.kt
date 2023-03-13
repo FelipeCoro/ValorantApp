@@ -18,13 +18,15 @@ class AgentListViewModel @Inject constructor(private val repository: IAgentRepos
     val viewState get() = _viewState
 
 
-
     fun getAgents() {
 
-        _viewState.postValue(AgentViewStates.Loading)
+
         viewModelScope.launch {
 
+            _viewState.postValue(AgentViewStates.Loading)
+            //IdlingResource.increment()
             val result = repository.getAllAgents()
+            //IdlingResource.decrement()
 
             when {
                 result.isSuccess -> {
@@ -40,6 +42,7 @@ class AgentListViewModel @Inject constructor(private val repository: IAgentRepos
 
 
     }
+
 
     fun filterAgent(role: String) {
         viewModelScope.launch {
