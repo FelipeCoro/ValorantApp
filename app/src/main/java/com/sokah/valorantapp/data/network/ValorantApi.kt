@@ -1,8 +1,8 @@
 package com.sokah.valorantapp.data.network
 
 import com.sokah.valorantapp.data.model.BaseModel
-import com.sokah.valorantapp.model.agents.AgentDto
 import com.sokah.valorantapp.data.model.dtos.SkinDto
+import com.sokah.valorantapp.model.agents.AgentDto
 import com.sokah.valorantapp.model.weapons.WeaponDto
 import retrofit2.Response
 import retrofit2.http.GET
@@ -13,7 +13,7 @@ interface ValorantApi {
 
     @GET("agents")
     suspend fun getAgents(
-        @Query("language") language: String,
+        @Query("language") language: String = "en-US",
         @Query("isPlayableCharacter") isPlayableCharacter: Boolean = true
     ): Response<BaseModel<MutableList<AgentDto>>>
 

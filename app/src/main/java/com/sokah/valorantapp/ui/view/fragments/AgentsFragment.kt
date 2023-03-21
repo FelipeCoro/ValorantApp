@@ -103,7 +103,6 @@ class AgentsFragment : Fragment(R.layout.fragment_agents) {
     }
 
     fun filterAgents(checkedId: Int) {
-
         val chip = binding.chipGroup.findViewById<Chip>(checkedId)
 
         if (chip != null) {
